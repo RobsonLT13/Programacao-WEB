@@ -1,4 +1,4 @@
-package teste01;
+package atividade_avaliativa;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletAgenda
+ * Servlet implementation class ServletNomeSobrenome
  */
-@WebServlet("/ServletAgenda")
-public class ServletAgenda extends HttpServlet {
+@WebServlet("/ServletNomeSobrenome")
+public class ServletNomeSobrenome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServletAgenda() {
+    public ServletNomeSobrenome() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,8 +29,10 @@ public class ServletAgenda extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter saida = response.getWriter();
-		saida.write("<HTML><BODY><a href=Agenda.jsp>Ir para Agenda</a></BODY></HTML>");
-		saida.close();
+    	saida.write("<HTML><BODY>");
+    	saida.write("Bem vindo! " + request.getParameter("primeiroNome") + " " + request.getParameter("ultimoNome"));
+    	saida.write("</BODY></HTML>");
+    	saida.close();
 	}
 
 }

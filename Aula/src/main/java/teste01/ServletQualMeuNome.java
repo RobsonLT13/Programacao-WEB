@@ -29,7 +29,7 @@ public class ServletQualMeuNome extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter saida = response.getWriter();
-		saida.write("<HTML><BODY><a href=ServletMeuNome>Qual é meu nome?</a></BODY></HTML>");
+		saida.write("<HTML><BODY><a href=/Aula/ServletMeuNome>Qual é meu nome?</a></BODY></HTML>");
 		saida.close();
 	}
 
