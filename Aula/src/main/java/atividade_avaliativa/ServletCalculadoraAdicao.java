@@ -38,13 +38,14 @@ public class ServletCalculadoraAdicao extends HttpServlet {
     	while (nomesParametros.hasMoreElements()) {
     		String parametro = nomesParametros.nextElement().toString();
     		saida.write(request.getParameter(parametro));
-    		saida.write(" + ");
+    		if (nomesParametros.hasMoreElements()) {
+    			saida.write(" + ");
+    		}
     		String valor = request.getParameter(parametro);
             int valorconvertido = Integer.parseInt(valor);
     		soma += valorconvertido;
 		}
-    	saida.write("= " + soma);
-
+    	saida.write(" = " + soma);
     	saida.write("</BODY></HTML>");
     	saida.close();
 	}
