@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Exercicio para validar CPF</title>
+<script type="text/javascript">
+function ValidarCPF(cpf) {
+	var cpf_validado = cpf; 
+	var cpfValido = /^((\d{3}.\d{3}.\d{3}-\d{2}))$/;
+	if (cpfValido.test(cpf_validado) == false) {
+		cpf_validado = cpf_validado.replace(/\D/, "");// retira tudo que não é digito
+		if (cpf_validado.length==11) {
+			// converte o valor digitado para a máscara: ###.###.###-##
+			cpf_validado = cpf_validado.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/,'$1.$2.$3-$4');
+		}else {
+			cpf_validado = "CPF inválido";
+		}
+	}
+	return cpf_validado;
+}
+	
+function inserirRegistro() {
+	var nome = document.getElementById("inputNome").value;
+	var cpf = document.getElementById("inputCPF").value;
+	
+	var tabela = document.getElementById("registros");
+	// Recuperar a quantidade de linhas da tabela
+	
+	var linhasTotais = tabela.rows.length;
+	
+	// Adiciona uma linha ao final da tabela - <tr></tr>
+	
+	var novaLinha = tabela.insertRow(linhasTotais);
+	
+	// Adiciona duas células à linha criada - <tr><td></td><td></td></tr>
+	
+	var novaCelulaNome = novaLinha.insertCell(0);
+	var novaCelulaCPF = novaLinha.insertCell(1);
+	
+	// Definir o conteúdo das células criadas - <tr><td>nome</td><td>cpf</td></tr>
+	
+	novaCelulaNome.innerHTML = nome;
+	novaCelulaCPF.innerHTML = ValidarCPF(cpf);
+	
+}
+</script>
+</head>
+<body>
+<h2>Validação de CPF</h2>
+Nome<input id="inputNome" type="text"><br>
+CPF<input id="inputCPF" type="text" pattern="[0-9]{11}"><br>
+<input type="button" value="Inserir registro" onclick="inserirRegistro()"><br>
+<table id="registros" border="1">
+	<tr>
+		<th>Nome</th>
+		<th>CPF</th>
+	</tr>
+</table>
+</body>
+</html>
+
