@@ -8,7 +8,7 @@
 
 </head>
 <body>
-<script> 
+<script type="text/javascript"> 
 function validarNota() {
 	/*
 	* Função para validar o campo "nota" e impedir que seja digitado letras,

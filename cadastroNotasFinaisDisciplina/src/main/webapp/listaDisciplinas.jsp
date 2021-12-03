@@ -12,7 +12,7 @@
 <%-- Inclui u cabeçalho Header.jsp no código --%>
 	<%@ include file="Header.jsp" %>
 	<br>
-	<h2>Lista de encontros:</h2>
+	<h2>Notas:</h2>
 	<%-- 
 	Cria uma tabela para apresentar a lista composta de objetos da classe 
 	Disciplina com o nome da disciplina, nota final e a situação
